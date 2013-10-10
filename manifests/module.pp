@@ -11,7 +11,7 @@ define apache2::module ($modname = "$name") {
   exec { "apache2-module-$modname-$name":
     command => "a2enmod $modname",
     creates => "/etc/apache2/mods-enabled/$modname.load",
-    require => [File["/etc/apache2/mods-available/$modname.load"], Package[apache2::package]],
+    require => [File["/etc/apache2/mods-available/$modname.load"], Package[$apache2::package]],
     notify  => Service["apache2"]
   }
 }
