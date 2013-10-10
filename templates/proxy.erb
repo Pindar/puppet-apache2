@@ -5,7 +5,7 @@
 <% if @preserve_host -%>
         ProxyPreserveHost On
 <% end -%>
-<% @bypass_locations.each do |bypass_location| -%>
+<% bypass_locations.each do |bypass_location| -%>
         ProxyPass <%= @bypass_location %> !
 <% end -%>
         ProxyPass <%= @proxy_location %> <%= @proxy_type %>://<%= @backend_url %><%= @proxy_location %>
