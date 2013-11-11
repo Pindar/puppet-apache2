@@ -25,6 +25,6 @@ define apache2::custom_virtualhost ($conffile, $source = "", $content = "") {
     command => "a2ensite $conffile",
     creates => "/etc/apache2/sites-enabled/$conffile",
     require => File["/etc/apache2/sites-available/$conffile"],
-    notify  => Service["apache2"]
+    notify  => Service["apache2"],
   }
 }
